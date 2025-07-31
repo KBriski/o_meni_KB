@@ -1,6 +1,6 @@
 Osobna web stranica – Kristina Briški
 
-Dobro došli na moju osobnu web stranicu!  
+Dobro došli na moju osobnu web stranicu -- https://kbriski.github.io/o_meni_KB/
 Ova stranica predstavlja moj digitalni životopis i kratki uvid u moje vještine, obrazovanje i iskustvo.
 
 Sadržaj:
