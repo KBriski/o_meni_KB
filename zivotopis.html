@@ -1,0 +1,227 @@
+<!-- 
+ display: flex ➝ omogućuje horizontalni raspored
+
+justify-content: center ➝ centriranje cijele grupe
+
+align-items: center ➝ vertikalno poravnanje
+
+gap: 2rem ➝ prostor između "Povratak" i "Životopis"
+
+fw-bold, fs-3, text-dark ➝ Bootstrap klase za stil
+
+d-flex flex-column → raspoređuje sadržaj okomito (ikonica iznad teksta)
+
+align-items-center → centrira ih vodoravno
+
+fs-3 ili fs-4 → veličina ikone ili teksta (Bootstrap font-size klase)
+
+mt-1 → mali razmak između ikone i teksta
+-->
+
+<header class="moj-header">
+
+<style>
+.moj-header {
+   background-color:  #e9f5f1;
+      padding: 1rem;
+      /*border-top: 2px solid #e0a96d; 
+    border-bottom: 2px solid #e0a96d; */
+}
+
+.header-flex {
+  display: flex;
+  justify-content: center;   /* centriraj sve unutar */
+  align-items: center;
+  gap: 10 rem;                 /* razmak između elemenata */
+  padding: 1rem 0;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode .moj-header,
+body.dark-mode .moj-footer {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+    </style>
+
+<div class="header-flex justify-content-center align-items-center gap-5">
+
+  <!-- Lijevo: Povratak -->
+  <div class="d-flex flex-column align-items-center">
+    <a href="index.html"  class="btn btn-outline-secondary"  title="Povratak"> 
+  <i class="bi bi-arrow-bar-left fs-4"></i> </a>
+  </div>
+
+  <!-- sredina: Životopis -->
+  <div class="d-flex flex-column align-items-center">
+    <i class="bi bi-file-text fs-3"></i>
+    <p class="m-0 fw-bold fs-4">ŽIVOTOPIS</p>
+  </div>
+
+   <!-- desno: crno/bijelo -->
+  <div class="d-flex flex-column align-items-center">
+   <button id="mode-toggle" class="btn btn-outline-secondary" title="Dark/light mode">
+  <i class="bi bi-moon-fill"></i>
+</button>
+  </div>
+
+</div>
+</header>
+
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Osobni podaci</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+  .sekcija {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+   align-items: center; /* da bude fino desno u sredini, ne flex-start */
+}
+
+.lijevo {
+  background-color: #146c43; /* tamnija zelena */
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.desno {
+  background-color: #d4edda; /* svijetlija zelena */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  line-height: 1.6;
+}
+
+/*da se fino vidi i manjim ekranima*/
+@media (max-width: 768px) {
+  .sekcija {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+   <!-- Script za učitavanje header/footer 
+  <div id="header"></div>  -->
+
+<main class="container mt-5">
+
+  <!-- SEKCIJA 1: Osobni podaci -->
+  <div class="sekcija">
+    <div class="lijevo">
+      <h2>Osobni podaci</h2>
+    </div>
+    <div class="desno">
+      <p>Ime i prezime: Kristina Briški</p>
+      <p>Rođenje: 1992.</p>
+      <p>Grad: Slavonski Brod</p>
+      <p>Obrazovanje: učiteljica razredne nastave, studentica Informatike i informacijskih tehnologija</p>
+    </div>
+  </div>
+
+  <!-- SEKCIJA 2: O meni -->
+  <div class="sekcija">
+    <div class="lijevo">
+      <h2>O meni</h2>
+    </div>
+    <div class="desno">
+      <ul>
+        <li>Marljiva, kreativna, odgovorna, optimistična</li>
+        <li>Volim rad s djecom, prenositi im znanje i gledati kako napreduju</li>
+        <li>Vjerujem u cjeloživotno učenje</li>
+        <li>Učim postupno, volim izazove i odgovornost</li>
+        <li>Vidim se u obrazovanju, ali i u razvoju i dizajnu web stranica</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+
+
+  <!-- Script za učitavanje header/footer -->
+  <div id="footer"></div>
+
+<script>
+   // JS dio, Učitaj footer/heder.html i ubaci ga u div#footer/heder
+ fetch("header.html")
+    .then(response => response.text())
+    .then(data => {document.getElementById("header").innerHTML = data
+     });
+      fetch("footer.html")
+  .then(response => response.text())
+  .then(data => {document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+
+<!--svijetli/tamni način-->
+<script>
+  const toggleBtn = document.getElementById("mode-toggle");
+  const icon = toggleBtn.querySelector("i");
+
+  // Učitaj iz localStorage
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    icon.classList.replace("bi-moon", "bi-sun");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+
+    // Promijeni ikonu
+    icon.classList.toggle("bi-moon", !isDark);
+    icon.classList.toggle("bi-sun", isDark);
+
+    // Spremi postavku
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,212 @@
+
+
+<header class="moj-header">
+
+<style>
+.moj-header {
+   background-color:  #e9f5f1;
+      padding: 1rem;
+      /*border-top: 2px solid #e0a96d; 
+    border-bottom: 2px solid #e0a96d; */
+}
+
+.header-flex {
+  display: flex;
+  justify-content: center;   /* centriraj sve unutar */
+  align-items: center;
+  gap: 10 rem;                 /* razmak između elemenata */
+  padding: 1rem 0;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode .moj-header,
+body.dark-mode .moj-footer {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+    </style>
+
+<div class="header-flex justify-content-center align-items-center gap-5">
+
+  <!-- Lijevo: Povratak , tekxt dark uvijek tamno, body da se prilagodi-->
+   <div class="d-flex flex-column align-items-center">
+    <a href="index.html"  class="btn btn-outline-secondary"  title="Povratak"> 
+  <i class="bi bi-arrow-bar-left fs-4"></i> </a>
+  </div>
+
+  <!-- sredina: Životopis -->
+  <div class="d-flex flex-column align-items-center">
+   <i class="bi bi-person-workspace"></i>
+    <p class="m-0 fw-bold fs-4">ISKUSTVO</p>
+  </div>
+
+   <!-- desno: crno/bijelo -->
+  <div class="d-flex flex-column align-items-center">
+   <button id="mode-toggle" class="btn btn-outline-secondary" title="Dark/light mode">
+  <i class="bi bi-moon-fill"></i>
+</button>
+  </div>
+
+</div>
+</header>
+
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Osobni podaci</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+  .sekcija {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+   align-items: center; /* da bude fino desno u sredini, ne flex-start */
+}
+
+.lijevo {
+  background-color: #146c43; /* tamnija zelena */
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.desno {
+  background-color: #d4edda; /* svijetlija zelena */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  line-height: 1.6;
+}
+
+/*da se fino vidi i manjim ekranima*/
+@media (max-width: 768px) {
+  .sekcija {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+   <!-- Script za učitavanje header/footer
+  <div id="header"></div> ne treba jer mi na svakoj od 3 stranice treba pisati posebno -->
+
+
+<main class="container mt-5">
+
+  <!-- SEKCIJA 1: iskustvo u školi-->
+  <div class="sekcija">
+    <div class="lijevo">
+      <h3>Iskustvo u školi</h3>
+    </div>
+    <div class="desno">
+         <ul> 
+      <li>Kao učiteljica razredne nastave radim u osnovnoj školi već 9 godina (u razredu, u produženom boravku, kao učiteljica informatike)</li>
+      <li>Zadnje 3 godine radim u istoj školi u produženom boravku s prekidima preko ljeta.</li>
+      <li>Upisujem studij Informatike kako bih mogla ostati u školi i predavati učenicima informatiku ili krenuti u novome smjeru.</li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <!-- SEKCIJA 2: iskustvo u informatici  -->
+  <div class="sekcija">
+    <div class="lijevo">
+      <h3>Iskustvo u informatici</h3>
+    </div>
+    <div class="desno">
+     <ul>
+        <li>Kao studentica, dobila sam široka teorijska znanja i sada mi ostane odabrati ono što me zanima i krenuti s radom. </li>
+        <li>Sviđa mi se razvoj web stranica i aplikacija kao i mobilnih aplikacija pa bih u tome smjeru i htjela napredovati</li>
+        <li>Tijekom studija koristila sam VS Code za razvoj koda koristeći PHP, HTML, CSS, JavaScript, Dart, Python za izradu projekata: mobilna app za praćenje osobnih troškova, web stranica putničke agencije s mogućnošću rezervacije putovanja</li>
+        <li><strong>Mobilna aplikacija Troškovnik </strong>je Flutter aplikacija za Android okruženje koja omogućuje praćenje troškova korisnika putem jednostavnog sučelja i pohrane podataka u lokalnu SQLite bazu podataka. Korišten je Dart programski jezik.</li>
+        <li><strong>Web stranica Putnička agencija</strong> je dinamička web stranica u kojoj je glavni jezik skriptni PHP uz korištenje HTML, CSS i JavaScript. Aplikacija koristi MySQL relacijsku bazu podataka koja je uređivana putem web alata phpMyAdmin. </li>
+        <li><strong>Web aplikacija za produženi boravak</strong> izradila sam za završni rad. Glavni jezik za izradu aplikacije je skriptni PHP uz korištenje HTML, CSS i JavaScript. Aplikacija koristi MySQL relacijsku bazu podataka koja je uređivana putem web alata phpMyAdmin.   </li>
+        <li>Koristila sam XAMPP lokalno okruženje web poslužitelja za brzo i jednostavno testiranje aplikacije te uočavanje nedostataka prilikom stvaranja koda na vlastitom računalu</li>
+        <li>Najradije koristim VS Code. Za statičke web stranice koristim HTML, CSS i JS, a za dinamičke web stranice/app koristim PHP, MySQL relacijsku bazu koju uređujem putem web alata phpMyAdmin, a sve lokalno testiram koristeći XAMPP. </li>
+        <li>Projekte spremam na github.com</li>
+        <li>Primjer statičke web stranice putničke agencije: 
+            <a href="https://kbriski.github.io/projekt_osnove_DHTML">Putnička agencija</a>
+            </li>
+    </ul>
+    </div>
+  </div>  
+
+</main>
+
+
+
+  <!-- Script za učitavanje header/footer -->
+  <div id="footer"></div>
+
+<script>
+   // JS dio, Učitaj footer/heder.html i ubaci ga u div#footer/heder
+ fetch("header.html")
+    .then(response => response.text())
+    .then(data => {document.getElementById("header").innerHTML = data
+     });
+      fetch("footer.html")
+  .then(response => response.text())
+  .then(data => {document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+
+  <!--svijetli/tamni način-->
+<script>
+  const toggleBtn = document.getElementById("mode-toggle");
+  const icon = toggleBtn.querySelector("i");
+
+  // Učitaj iz localStorage
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    icon.classList.replace("bi-moon", "bi-sun");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+
+    // Promijeni ikonu
+    icon.classList.toggle("bi-moon", !isDark);
+    icon.classList.toggle("bi-sun", isDark);
+
+    // Spremi postavku
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
+
+</body>
+</html>
